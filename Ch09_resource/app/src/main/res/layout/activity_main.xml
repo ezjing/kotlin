@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<!--  1. drawable : gradient 적용  -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/gradient_box"/>
+
+<!--  2. strings.xml, dimens.xml 사용  -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/txt_data1"/>
+<!--        android:textSize="@dimen/txt_size"-->
+<!--        android:textColor="@color/txt_color"-->
+<!--        android:background="@color/txt_bg_color"/>-->
+<!--  3. 플랫폼 리소스 : 소스코드에서 사용  -->
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
