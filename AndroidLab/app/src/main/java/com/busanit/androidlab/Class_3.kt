@@ -3,7 +3,7 @@ package com.busanit.androidlab
 // 1. 클래스 선언
 //class User {
 //    var name = "kkang"  // 멤버변수 : 선언할때 초기화 해줘야함
-//    constructor(name: String) { // 생성자
+//    constructor(name: String) { // 생성자 (보조생성자)
 //        this.name = name
 //    }
 //    fun someFun () {    // 메소드
@@ -14,7 +14,7 @@ package com.busanit.androidlab
 //}
 //
 //fun main() {
-//    val user = User("kim")
+//    val user = User("kim")  // 주생성자(매개변수가 있는) 자동 추가되어 사용 가능한듯
 //    user.someFun()
 //}
 
@@ -39,7 +39,7 @@ package com.busanit.androidlab
 //    val user = User("kkang", 10)    // 객체가 만들어지며 상단 init 영역 자동 실행
 //}
 
-// 1-3. 매개변수를 멤버변수로 사용하는 방법
+// 1-3. 매개변수를 멤버변수로 사용하는 방법 (메소드를 사용하기 위해서는 필드멤버가 있어야 한다)
 //class User(name : String, count : Int) {
 //    lateinit var name : String
 //    var count : Int = 0 // 멤버변수 선언
@@ -70,7 +70,7 @@ package com.busanit.androidlab
 //        user.someFun()
 //}
 
-// 2. 보조 생성자, 클래스의 본문에 constructor 키워드로 선언, 여러개 추가 가능 (이부분 자바랑 비슷한거 있는데 찾아보기)
+// 2. 보조 생성자, 클래스의 본문에 constructor 키워드로 선언, 여러개 추가 가능 (자바의 오버로딩과 비슷 용도도 오버로딩 비슷, 오버로딩 : 같은 이름의 메소드를 중복하여 정의)
 //class User {    // 매개변수 없는 생성자
 //    constructor(name : String) {
 //        println("constructor(name : String) call.....")
@@ -87,15 +87,15 @@ package com.busanit.androidlab
 
 // 2-1. 주생성자, 보조생성자 함께 사용
 //class User(name : String) {
-//    constructor(name : String, count : Int) : this(name) {  // this(name) 주생성자 호출
+//    constructor(name : String, count : Int) : this(name) {  // this(name) 주생성자 호출 (자바에서 this() 는 같은 클래스의 다른 생성자를 호출할 때 사용, this. 은 인스턴스 자신을 가르키는 참조 변수)
 //    }
 //}
 
-// 2-2. 보조생성자 여러개 사용
+// 2-2. 보조생성자 여러개 사용 (자바의 오버로딩)
 //class User(name : String) {
 //    // 보조생성자를 사용할때는 위에껄 순서대로 호출해주면 된다
-//    constructor(name : String, count : Int) : this(name) {}
-//    constructor(name : String, count : Int, email : String) : this(name, count)
+//    constructor(name : String, count : Int) : this(name) {}   // this(name) 주생성자 호출
+//    constructor(name : String, count : Int, email : String) : this(name, count)   // this(name, count) 보조생성자 호출
 //}
 //
 //fun main() {
@@ -111,7 +111,7 @@ package com.busanit.androidlab
 // 3-1. 매개변수 있는 생성자
 //open class Super(name : String) { }
 //
-//class Sub(name : String) : Super(name) { }   // 매개변수 구성에 맞게 전달
+//class Sub(name : String) : Super(name) { }   // 매개변수 구성에 맞게 전달 (보조생성자가 여러개 사용될떄와 비슷. 원래의 생성자 매개변수가 타입 생략)
 
 // 3-2. 부모클래스 함수 사용
 //open class Super {
@@ -138,7 +138,7 @@ package com.busanit.androidlab
 //}
 //
 //class Sub : Super() {
-//    override var someData = 20  // 오버라이딩 할 변수, 메소드에 override 키워드 사용
+//    override var someData = 20  // 오버라이딩 할 변수, 메소드에 override 키워드 사용 (자바에서는 @Override)
 //    override fun someFun() {
 //        println("I am sub class function : $someData")
 //    }
@@ -151,9 +151,10 @@ package com.busanit.androidlab
 
 // 4. 접근 제한자 - public(모든 클래스), internal(같은 모듈(패키지)), protected(상속 관계), private(자기 클래스 내부)
 //open class Super {
-//    var publicData = 10 // 생략된 경우, public
+//    var publicData = 10 // 생략된 경우, public (자바는 기본값 default)
 //    protected var protectedData = 20
 //    private var privateData = 30
+//    internal var internalData = 40
 //}
 //
 //class Sub : Super() {
@@ -161,6 +162,7 @@ package com.busanit.androidlab
 //        publicData++
 //        protectedData++
 ////        privateData++
+//        internalData++
 //    }
 //}
 //
@@ -169,12 +171,13 @@ package com.busanit.androidlab
 ////    obj.subFun()
 ////}
 //
-////fun main() {
-////    val obj = Super()
-////    obj.publicData++
-////    obj.protectedData++
-////    obj.privateData++
-////}
+//fun main() {
+//    val obj = Super()
+//    obj.publicData++
+//    obj.protectedData++ // 자바랑 다르게 같은 패키지 내에서도 상속 관계가 아니면 안됨. 무조건 상속 했을 때만 사용 가능
+//    obj.privateData++
+//    obj.internalData++
+//}
 
 // 5. 클래스 종류, 데이터 클래스(자바의 DTO)
 //class NonDataClass(val name : String, val email : String, val age : Int) {}    // 일반 클래스
@@ -194,7 +197,7 @@ package com.busanit.androidlab
 
 // 5-1. 데이터 클래스 equals() : 주생성자 매개변수 데이터만 비교
 //data class DataClass(val name : String, val email : String, val age : Int) {
-//    lateinit var address : String
+//    lateinit var address : String // 보조생성자 추가 데이터
 //    constructor(name : String, email : String, age : Int, address : String) : this(name, email, age) {
 //        this.address = address
 //    }
@@ -206,14 +209,55 @@ package com.busanit.androidlab
 //    println("obj1.equals(obj2) : ${obj1.equals(obj2)}") // 보조생성자로 만든 데이터는 비교하지 않기 때문에 true 출력 (true : Seoul, Busan은 비교 안함)
 //}
 
-// 5-2. 데이터 클래스 toString() 함수
+// 5-2. 데이터 클래스 toString() 함수 (자바에서는 문자형으로 데이터 타입 변환시켜주는 메소드임)
+//fun main() {
+//    class NonDataClass(val name : String, val email : String, val age : Int)
+//    data class DataClass(val name : String, val email : String, val age : Int)
+//
+//    val non = NonDataClass("kkang", "a@a.com", 10)
+//    val data = DataClass("kkang", "a@a.com", 10)
+//
+//    println("non data class toString : ${non.toString()}")  // 객체 주소값 출력
+//    println("data class toString : ${data.toString()}") // 객체의 데이터 출력
+//}
+
+// 5-3. object 클래스(익명 클래스 생성 목적)
+//open class Super {
+//    open var data = 10
+//    open fun some() {
+//        println("I am super some() : $data")
+//    }
+//}
+//val obj = object : Super() {  // object 키워드 : 오브젝트 클래스(익명 클래스) 선언, 이름이 없는 클래스이기 떄문에 클래스 선언과 동시에 객체를 생성해야함. (객체에는 이후 접근 가능) (자바는 Animal dog = new Animal() {} 이런 형식으로 생성한다. 클래스 이름없이 바로 객체 생성)
+//    override var data = 20
+//    var data2 = 30
+//    override fun some() {
+//        println("I am some() : $data")
+//    }
+//}
+//
+//fun main() {
+//    obj.data = 30   // 익명클래스로 만든 객체에 접근하여 데이터 및 메소드 수정
+//    obj.data2 = 40  // 익명 클래스 방식으로 선언한다면 오버라이딩 한 메소드 사용만 가능하고, 새로 정의한 메소드는 외부에서 사용이 불가능 (새로 정의한 필드이기에 사용 불가) (자바도 똑같다)
+//    obj.some()  // 익명클래스 메소드 호출
+//}
+
+// 5-4. 컴패니언 클래스(객체 생성 없이 클래스 이름으로 멤버에 접근, 자바의 static 클래스와 같다)
+class MyClass {
+    var name : String = "kkang"
+    companion object{
+        var data = 10
+        fun some() {
+            println("$data, name")
+        }
+    }
+}
+
 fun main() {
-    class NonDataClass(val name : String, val email : String, val age : Int)
-    data class DataClass(val name : String, val email : String, val age : Int)
-
-    val non = NonDataClass("kkang", "a@a.com", 10)
-    val data = DataClass("kkang", "a@a.com", 10)
-
-    println("non data class toString : ${non.toString()}")  // 객체 주소값 출력
-    println("data class toString : ${data.toString()}") // 객체의 데이터 출력
+//    val obj = MyClass()   // companion object가 없을때 접근 방법(객체 생성)
+//    obj.data = 20
+//    obj.some()
+    MyClass.data = 30   // companion object가 있을때 접근 방법(클래스 이름으로 접근), companion object의 유무에 따라 오류 발생
+//    MyClass.name = "Kim"    // companion object로 묶여있는 멤버들만 적용, 안에 속해있지 않기 때문에 오류 발생(클래스명으로 접근 불가)
+    MyClass.some()
 }
