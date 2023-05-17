@@ -1,7 +1,5 @@
 package com.busanit.androidlab
 
-import java.lang.Exception
-
 // 1. 변수 선언하기 (변수 선언은 자바 보다 자바스크립트 느낌이다)
 // val : 값 변경 불가(value), var : 값 변경 가능(variable)
 //val data1 = 10  // 코틀린은 세미콜론 찍지 않는다
@@ -9,7 +7,7 @@ import java.lang.Exception
 //
 //fun main() {
 //   data1 = 20   // val : 값 변경 불가(value), 오류 발생
-//   data2 = 20 
+//   data2 = 20
 //}
 
 // 1-1. 변수 타입 지정
@@ -18,7 +16,7 @@ import java.lang.Exception
 
 // 1-2. 초기값 할당(최상위 변수(클래스 바깥에 제일 위에 존재하는 변수), 클래스 멤버 변수는 선언과 동시에 초기값 할당)
 //val data1 : Int // 클래스 멤버 변수는 초기값 지정 없이 타입만 지정하면 오류 발생
-
+//
 //class User {
 //    val data2: Int = 10
 //}
@@ -28,7 +26,7 @@ import java.lang.Exception
 //}
 
 // 1-3. 초기화 미루기(lateinit 키워드 이용)
-//lateinit var data1 : Int    // int, long, short, float, double, boolean, byte 타입은 사용 불가
+//lateinit var data1 : Int    // int, long, short, float, double, boolean, byte 타입은 사용 불가 (정수형, 실수형, 논리형)
 //lateinit var data2 : String
 //lateinit val data3 : String // val은 바로 값을 할당해야 하기 때문에 오류 발생. val 사용 불가
 
@@ -40,8 +38,8 @@ import java.lang.Exception
 //
 //fun main() {    // main을 가장 먼저 실행
 //    println("in main.....")
-//    println(data1 + 10) // data1 : lazy에서 지정한 10을 들고옴
-//    println(data1 + 10)
+//    println(data1 + 10) // data1 : lazy에서 지정한 10을 들고옴 + println도 같이 들고옴
+//    println(data1 + 10) // 마지막에 10으로 초기화가 됐기 때문에 10만 들고와서 20만 출력
 //}
 
 // 2. 데이터 타입
@@ -63,7 +61,7 @@ val a6 : Boolean = true
 // 2-2 문자, 문자열
 val a : Char = 'a'
 // 자바에서는 문자를 숫자로 바꿀 수 있지만 코틀린에서는 불가
-//if(a==1) {} // char 타입 데이터를 Number로 변환불가
+//if(a == 1) {} // char 타입 데이터를 Number로 변환불가
 
 //fun main() {
 //    val str1 = "Hello\nWorld"   // \n : 강제 줄바꿈
@@ -71,7 +69,7 @@ val a : Char = 'a'
 //        Hello
 //        World
 //        """.trimIndent()    // 큰따움표 3개를 쓰면 안에 쓴 그대로 출력 (띄어쓰기 줄바꿈 따로 안써도 됨)
-//    println("str1 : $str1") // $를 써야 변수 가져오기 가능
+//    println("str1 : $str1") // $를 써서 변수 가져오기 가능
 //    println("str2 : $str2")
 //}
 
@@ -79,8 +77,8 @@ val a : Char = 'a'
 //fun main() {
 //    fun sum(no : Int) : Int{    // sum : 파라미터로 int 값을 받고, 결과 값으로 int 값을 리턴. 함수 뒤에 : 데이터 타입 하면 리턴값, 함수 안에 : 데이터 타입은 매개변수
 //        var sum = 0
-//        for ( i in 1 .. no) {
-//            sum += i
+//        for (i in 1 .. no) {    // in a .. b : a 이상 b 이하
+//            sum += i    // 1부터 no 까지 총합
 //        }
 //        return sum
 //    }
@@ -92,7 +90,7 @@ val a : Char = 'a'
 //val data1 : Any = 10    // int
 //val data2 : Any = "hello"    // String
 //class User{}
-//val data3 : Any = User()    // 클래스 객체
+//val data3 : Any = User()    // 클래스 타입
 
 // 2-5. Unit 타입 - 리턴 없는 함수 (자바로 치면 void)
 //val data1 : Unit = Unit
@@ -104,7 +102,7 @@ val a : Char = 'a'
 //}
 
 // 2-6. Nothing 타입
-//val data1 : Nothing? = null // Nothing 타입 변수에는 null 만 대입 가능
+//val data1 : Nothing? = null // Nothing 타입 변수에는 null 만 대입 가능 (null 또는 비어있는 값만 올 수 있어서 타입 뒤에 ?가 꼭 붙어야함)
 //// 데이터로서의 의미 없음 (값이 없으니까)
 //fun some1() : Nothing? {
 //    return null
@@ -127,9 +125,9 @@ val a : Char = 'a'
 //fun some(data1 : Int) : Int{
 //    return data1 * 10
 //}   // 함수명(파라미터 이름 : 파라미터 데이터 타입) : 리턴 데이터 타입
-
+//
 //fun some2(data1 : Int) {    // 리턴 데이터 타입 없으므로 Unit
-//    data1 = 20 // 전달되는 매개변수는 val, 변경 불가능
+//    data1 = 20 // 전달되는 매개변수는 val, 변경 불가능 (말 그대로 다른 어딘가에서 data1의 값이 들어올건데 그것을 함수 내부에서 다시 변경하는것은 불가능. val 형식으로 전달되기 때문)
 //}
 
 // 3-1. 파라미터에 기본값 선언
@@ -142,7 +140,7 @@ val a : Char = 'a'
 //    println(some(data2 = 20, data1 = 10))   // 매개변수명 지정하여 전달 가능. 데이터 위치를 바꾼것. 이렇게 명시적으로 지정 가능
 //}
 
-// 4. 컬렉션 타입
+// 4. 컬렉션 타입 (: 뒤에는 대문자(타입취급 이라서), = 뒤에는 소문자(메소드 취급 이라서))
 // 4-1. Array - 배열
 //fun main() {
 //    val data1 : Array<Int> = Array(3, {0})  // 생성자는(크기, 초기값)으로 구성
@@ -174,13 +172,13 @@ val a : Char = 'a'
 //    val data1 = arrayOf<Int>(10, 20, 30)
 //    println("""
 //        array size : ${data1.size}
-//        array data ; ${data1[0]}, ${data1[1]}, ${data1.get(2)}
+//        array data : ${data1[0]}, ${data1[1]}, ${data1.get(2)}
 //    """.trimIndent())
 //    println("""
-//        array data ; ${data2[0]}, ${data2[1]}, ${data2.get(2)}
+//        array data : ${data2[0]}, ${data2[1]}, ${data2.get(2)}
 //    """.trimIndent())
 //    println("""
-//        array data ; ${data3[0]}, ${data3[1]}, ${data3.get(2)}
+//        array data : ${data3[0]}, ${data3[1]}, ${data3.get(2)}
 //    """.trimIndent())
 //}
 
@@ -207,7 +205,7 @@ val a : Char = 'a'
 // list : 순서 유, 데이터 중복 허용
 // set : 순서 무, 데이터 중복 불허용
 // map : 키, 밸류 조합으로 구성, 순서 무, 키 중복 불허용
-// 배열은 사이즈가 지정 돼있음(사이즈를 먼저 넣거나 변수와 동시에 자동으로 지정됨), List는 사이즈 지정 안돼있음
+// 자바기준 배열은 사이즈가 지정 돼있음(사이즈를 먼저 넣거나 변수와 동시에 자동으로 지정됨), List는 사이즈 지정 안돼있음
 
 // 4-6. map
 fun main() {
@@ -218,5 +216,4 @@ fun main() {
         map data : ${map.get("one")}, ${map.get("two")}
     """.trimIndent())
 }
-
 
