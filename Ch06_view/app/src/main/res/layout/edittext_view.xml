@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+    <!--  inputType : 터치할 때 나타나는 키패드의 종류를 지정, 기본값 textMultiLine(문자 여러줄 입력 가능)  -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:hint="전화번호 입력"/>
+    <!--  maxLines : 입력창이 지정한 라인 수까지만 확대  -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:maxLines="3"
+        android:hint="maxLine 테스트"/>
+    <!--  lines : 처음부터 입력창이 지정한 라인 수만큼 표시  -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:lines="3"
+        android:hint="lines 테스트" />
+    <!--  ems 속성 비교 : 가로 공간 확보(ems 없고 hint도 없으면 딱 한글자만큼 줄만 표시됨)  -->
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"/>
+
+</LinearLayout>

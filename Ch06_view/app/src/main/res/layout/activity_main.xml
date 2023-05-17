@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  외형적인것 설정  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lake Louise"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/lake_1"
+        android:visibility="visible" />
+    <!--    visible/invisible : 이미지를 위한 공간도 있고 표시, 미표시 gone : 공간자체가 없음    -->
+    <!--  뷰 내부적으로 자체적인 공간띄우기 패딩, 부모로부터 얼마만큼 띄우기 마진  -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="lake Louise, AB, Canada"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+        <!--    wrap_content 자기자신 내용 에 맞춘 크기, match_parent 부모 크기만큼 꽉 채운 크기    -->
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이미지 보이기" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="이미지 숨기기" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BUTTON~~~~~~~~~~~3" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ff0000"
+                android:text="BUTTON4" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:autoLink="web|phone|email"
+        android:text="이지스 퍼블리싱 : 웹페이지 http://easyspub.com, 전화번호 325-1722, 이메일 : easy@easypub.co.kr" />
+
+    <TextView
+        android:id="@+id/marqueeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="@string/koreaSong"
+        android:textSize="20sp" />
+</LinearLayout>

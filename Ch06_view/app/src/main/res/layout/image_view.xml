@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <!--  adjustViewBound : 뷰 영역을 직접(layout_width/height) 지정하면 이미지 크기에 정확히 맞추기 힘듦(붉은 배경이 튀어나오는 이유)  -->
+<!--  maxWidth/Height에서 지정한 크기이상 못커짐. 비율맞춰(adjustViewBound) 최대크기로 설정됨, (layout_width/height)에 따라서 이미지 스스로의 크기 만큼이 곧 뷰 영역이 됨  -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ff0000"
+        android:src="@drawable/lake_1"
+        android:adjustViewBounds="true"
+        android:maxWidth="300dp"
+        android:maxHeight="300dp"/>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="30dp"
+        android:background="#ff0000"
+        android:src="@drawable/lake_1"
+        android:adjustViewBounds="true"/>
+
+</LinearLayout>
