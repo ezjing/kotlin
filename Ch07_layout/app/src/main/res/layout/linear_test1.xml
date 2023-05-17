@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="15dp">
+    <!--  LinearLayout : 뷰를 가로나 세로 방향으로 순서대로 나열하는 레이아웃  -->
+    <!--        <Button-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Button1"/>-->
+    <!--        <Button-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Button2"/>-->
+
+    <!--  layout_weight : 여백을 나눠 가짐(match_parent 아닐때 사용 가능)(여백을 1 : 1 : 1 비율로 나눠 가짐)  -->
+    <!--        <Button-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:text="Button1"/>-->
+    <!--        <Button-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:text="Button2"/>-->
+    <!--        <Button-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:text="Button3"/>-->
+
+    <!--        <EditText-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_weight="1"/>-->
+    <!--        <Button-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Button"/>-->
+
+    <!--  0dp : 뷰의 비율을 균일하게 배분(뷰의 크기가 0이면 화면에 아무것도 나오지 않기떄문에 화면 전체가 여백이 되기 때문에 여백을 각 컨텐츠에게 1씩 설정하면 콘텐츠 내용때문에 실제로는 크기가 다르게 출력되는 컨텐츠들도 같은 크기를 갖게된다)  -->
+<!--    <Button-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="1"-->
+<!--        android:text="button" />-->
+
+<!--    <Button-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="1"-->
+<!--        android:text="button~~~~~~~~~" />-->
+
+    <!--  교재 184p, 중첩된 뷰의 여백채우기(최상위 orientation vertical 적용하고 보기)  -->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+<!--            <Button-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="왼쪽버튼"/>-->
+<!--            <Button-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="오른쪽버튼"/>-->
+<!--        </LinearLayout>-->
+<!--        <Button-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="가운데 버튼"/>-->
+<!--        <Button-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="하단 버튼"/>-->
+
+    <!--  Gravity 속성(gravity : 뷰 안의 내용 정렬 / layout_gravity : 뷰 영역 자체를 정렬)  -->
+<!--        <TextView-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:background="#ff0000"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="#ffffff"-->
+
+<!--            android:text="Hello World"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_gravity="center_horizontal"/>-->
+
+    <!--  카카오톡 알림뷰 만들기  -->
+<!--        <ImageView-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:src="@drawable/kakao"-->
+<!--            android:layout_marginRight="10dp"/>-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:orientation="vertical"-->
+<!--            android:gravity="center_vertical">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="카카오톡"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:gravity="right"-->
+<!--                    android:text="9월 7일" />-->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="[기기 로그인 알림]"/>-->
+<!--        </LinearLayout>-->
+
+    <!--  선생님 풀이  -->
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/kakao"
+            android:layout_marginRight="10dp"/>
+        <!--  LinearLayout weight는 수평의 여백을 채운 것  -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp">
+            <!--  TextView의 weight는 수직의 여백을 균등하게 나눈 것  -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="카카오톡"
+                android:textColor="#000000"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="[기기 로그인 알림]"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="9월 7일"
+            android:gravity="center_vertical"/>
+</LinearLayout>

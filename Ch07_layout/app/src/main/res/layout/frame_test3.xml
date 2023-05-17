@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--  FrameLayout : 뷰들을 겹쳐서 배치, 제일 마지막에 배치한 뷰가 제일 위에 보임  -->
+    <!--  대부분 뷰의 표시 여부를 설정하는 visibility 속성과 함께 사용  -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BUTTON"/>
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:visibility="visible"/>
+
+</FrameLayout>

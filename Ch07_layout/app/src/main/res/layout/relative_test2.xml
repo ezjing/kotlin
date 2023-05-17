@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:padding="10dp">
+    <!--  1. RelativeLayout : 상대뷰의 위치를 기준으로 배치, id값 활용  -->
+<!--        <ImageView-->
+<!--            android:id="@+id/testImage"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@mipmap/ic_launcher"/>-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="HELLO"-->
+<!--            android:layout_toRightOf="@id/testImage"/>-->
+
+    <!--  2. 정렬 : align 속성 추가(기준 뷰에 맞춰 정렬)  -->
+<!--        <ImageView-->
+<!--            android:id="@+id/testImage"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@mipmap/ic_launcher"/>-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="HELLO"-->
+<!--            android:layout_toRightOf="@id/testImage"-->
+<!--            android:layout_alignBottom="@id/testImage"/>-->
+
+    <!--  3. 부모 뷰를 기준으로 정렬  -->
+<!--        <ImageView-->
+<!--            android:id="@+id/testImage"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@mipmap/ic_launcher"/>-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="HELLO"-->
+<!--            android:layout_alignBottom="@id/testImage"-->
+<!--            android:layout_alignParentRight="true"/>-->
+
+    <!--  카카오톡 알림 뷰 만들기  -->
+<!--        <ImageView-->
+<!--            android:id="@+id/kakaoimg"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:src="@drawable/kakao"-->
+<!--            android:layout_marginRight="15dp"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_toRightOf="@id/kakaoimg"-->
+<!--            android:layout_alignTop="@id/kakaoimg"-->
+<!--            android:text="카카오톡"-->
+<!--            />-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_toRightOf="@id/kakaoimg"-->
+<!--            android:layout_alignBottom="@id/kakaoimg"-->
+<!--                android:text="[기기 로그인 알림]"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="9월 7일"-->
+<!--            android:layout_alignParentRight="true"/>-->
+
+    <!--  선생님 풀이  -->
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/kakaoimg"
+        android:src="@drawable/kakao"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="카카오톡"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_toRightOf="@id/kakaoimg"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[기기 로그인 알림]"
+        android:layout_toRightOf="@id/kakaoimg"
+        android:layout_alignBottom="@id/kakaoimg"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:text="9월 7일"
+        android:textSize="10sp"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>
