@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <!--  테마(액션바) 색상 바꾸기  -->
+<!--    <style name="Base.Theme.Ch11_jetpack" parent="Theme.MaterialComponents.DayNight.DarkActionBar">-->
+    <style name="Base.Theme.Ch11_jetpack" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#ff9800</item>
+    </style>
+
+    <style name="Theme.Ch11_jetpack" parent="Base.Theme.Ch11_jetpack" />
+</resources>

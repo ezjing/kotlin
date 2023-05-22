@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--  1. theme.xml 수정 (values - theme - theme.xml(아무거도 안붙은거))  -->
+    <!--  2. TwoActivity 생성  -->
+    <!--  3. 소스코드에서 메뉴 생성, 4. 리소스에서 메뉴 생성  -->
+    <!--  6. 툴바 생성(androidx 재트팩 툴바 사용), theme.xml NoActionBar로 수정  -->
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Two Activity로 이동"
+        android:id="@+id/btnGo"/>
+
+    <!--  7. 프래그먼트 생성  -->
+<!--    <fragment-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:id="@+id/fragmentView"-->
+<!--        android:name="com.busanit.ch11_jetpack.OneFragment"/>-->
+
+    <!--  8. 프레그먼트 소스코드에서 동적 제어  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:id="@+id/fragment_container"/>
+
+</LinearLayout>
