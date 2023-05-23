@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer">
+
+    <!--  1. 최상위 레이아웃을 drawer 레이아웃으로 변경  -->
+    <!--  2. drawlayout 안에 두개의 뷰로 구성  -->
+    <!--  첫번째 뷰는 기본 화면  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Main Activity!!"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <!--  두번째 뷰는 숨어 있다가 나오는 화면  -->
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:text="I am Drawer!!"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="#ff0000"
+        android:gravity="center"
+        android:layout_gravity="start"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
