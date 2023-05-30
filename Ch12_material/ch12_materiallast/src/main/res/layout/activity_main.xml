@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer"
+    tools:context=".MainActivity">
+
+    <!--  1. DrawerLayout 안에 뷰 두개,   -->
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--  2. coordinatorLayout 안에 앱바 레이아웃, 뷰페이저  -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            <!--  3. AppbarLayout 안에 컬랩싱 툴바 레이아웃(스크롤 시 접힘)  -->
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginBottom="50dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="AppBar Title"
+                app:collapsedTitleTextColor="@color/white"
+                app:expandedTitleTextColor="@color/white">
+                <!--  scrollFlags : 툴바 영역을 남기고 앱바 접음  -->
+                <!--  ...titleTextColor : 접혔을때, 확장되었을 때 타이틀 색상 지정  -->
+
+                <!--  4. 컬랩싱 툴바 안에 이미지뷰, 툴바, 탭 레이아웃  -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/baseball"
+                    app:layout_collapseMode="parallax"/>
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:id="@+id/toolbar"
+                    app:layout_collapseMode="pin"/>
+                <com.google.android.material.tabs.TabLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/tabs"
+                    android:layout_gravity="bottom"
+                    android:background="#00000000"
+                    app:tabTextColor="#ffffff"
+                    app:layout_collapseMode="parallax"/>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/viewPager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        <!--  5. 플로팅 액션 버튼 추가  -->
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fab"
+            android:layout_margin="10dp"
+            android:text="Extended FAB"
+            app:layout_anchor="@id/viewPager"
+            app:layout_anchorGravity="bottom|right"/>
+
+        <!-- layout_anchor : 위치시킬 기준 뷰 지정, anchorGravity 속성 사용-->
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/main_drawer_view"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header_navi"
+        app:menu="@menu/menu_navi"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
