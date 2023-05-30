@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  1. 앱바 레이아웃 사용하기(툴바, 이미지뷰 배치)  -->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical"-->
+<!--    tools:context=".MainActivity">-->
+
+<!--  2. 최상위 레이아웃을 코디네이터 레이아웃으로 수정(이전까지는 리니어 레이아웃으로 할것)  -->
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!--  3. 컬랩싱 툴바 레이아웃 적용, 스크롤 시 앱바 영역도 접음  -->
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginBottom="50dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <!--  expandedTitle... : 앱바가 접히지 않았을 때 타이틀 위치  -->
+            <!--  exitUntilCollapsed : 앱바가 접힐 때, 툴바 표시 영역 남기고 접음  -->
+            <!--  contentScrim : 앱바가 접혔을 때 툴바의 색상 지정  -->
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseball"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax"/>
+            <!-- centerCrop : 비율 유지, 중앙 기준, 뷰 범위 벗어나는 이미지 출력 안함-->
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:id="@+id/toolbar"
+                app:layout_collapseMode="pin"/>
+            <!--  parallax : 스크롤 시 접힘, pin : 스크롤 시 고정  -->
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@+id/nestedScrollView"
+        app:layout_anchorGravity="center"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <!--  layout_behavior : 스크롤 정보를 앱바의 layout_scrollFlags 속성 가진 뷰에 전달, 함께 스크롤  -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/koreaSong"
+            android:textSize="25sp" />
+
+    </androidx.core.widget.NestedScrollView>
+    <!--</LinearLayout>-->
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
