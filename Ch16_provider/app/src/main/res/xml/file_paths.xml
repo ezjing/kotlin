@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  xml리소스 파일 - file_paths/paths/main 생성  -->
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path
+        name="myfiles"
+        path="Android/data/com.busanit.ch16_provider/files/Pictures"/>
+    <!--  getExternalFilesDir 로 파일 만들때 저장되는 위치(View-Tool Windows-Device File Explorer)  -->
+</paths>
