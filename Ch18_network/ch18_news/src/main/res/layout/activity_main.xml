@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <!--  1. build.gradle, 퍼미션 추가  -->
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"/>
+    <!--  FrameLayout : 뷰를 겹쳐서 출력하는 것, 단순히 겹쳐서 출력하는 것이다 (194p 참고)  -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/activity_content"/>
+    <!--  2. menu_main.xml 만들기  -->
+    <!--  3. 프래그먼트 두개 만들기, 초기값 volley로 세팅, 메뉴 선택 구현  -->
+    <!--  4. DTO 파일 두개 만들기  -->
+    <!--  5. 뷰홀더 만들기  -->
+    <!--  6. MyApplication 컴패니언 클래스 만들기, VolleyFragment 수정  -->
+
+</LinearLayout>
