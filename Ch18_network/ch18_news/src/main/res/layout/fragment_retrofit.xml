@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/retrofitRecyclerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RetrofitFragment">
+    <!--  왜item이 없어도 되지.. 형식은 item_main에서 정한건데...
+     확인해 보니 리사이클러뷰는 리사이클러뷰 만 지정해주면 해당 뷰에 아이템들이 와서 알아서 채워준다.  -->
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Retrofit Fragment"
-        android:textSize="20sp"/>
-
-</FrameLayout>
+</androidx.recyclerview.widget.RecyclerView>

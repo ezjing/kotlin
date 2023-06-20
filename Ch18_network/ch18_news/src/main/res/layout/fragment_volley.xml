@@ -5,5 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VolleyFragment">
+    <!--  왜item이 없어도 되지.. 형식은 item_main에서 정한건데...
+     확인해 보니 리사이클러뷰는 리사이클러뷰 만 지정해주면 해당 뷰에 아이템들이 와서 알아서 채워준다.  -->
 
 </androidx.recyclerview.widget.RecyclerView>

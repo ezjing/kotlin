@@ -2,10 +2,12 @@
 <!--  menu_main 만들면 xmlns:app="http://schemas.android.com/apk/res-auto 추가하기  -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--  누르면 발리모드로 변경되며 발리방식으로 통신  -->
     <item
         android:id="@+id/menu_volley"
         android:title="volley"
         app:showAsAction="always"/>
+    <!--  누르면 레트로핏모드로 변경되며 레트로핏방식으로 통신  -->
     <item
         android:id="@+id/menu_retrofit"
         android:title="retrofit"
