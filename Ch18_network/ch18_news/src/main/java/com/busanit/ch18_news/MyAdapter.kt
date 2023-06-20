@@ -8,14 +8,14 @@ import com.bumptech.glide.Glide
 import com.busanit.ch18_news.databinding.ItemMainBinding
 import com.busanit.ch18_news.model.ItemModel
 
-class MyViewHolder(val binding: ItemMainBinding): RecyclerView.ViewHolder(binding.root) // 뷰홀더 클래스
+class MyViewHolder(val binding: ItemMainBinding): RecyclerView.ViewHolder(binding.root) // 뷰홀더 클래스(item_main을 바인딩해옴)
 
-class MyAdapter(val context: Context, val datas: MutableList<ItemModel>?): RecyclerView.Adapter<RecyclerView.ViewHolder>() { // 어뎁터 클래스
+class MyAdapter(val context: Context, val datas: MutableList<ItemModel>?): RecyclerView.Adapter<RecyclerView.ViewHolder>() { // 어뎁터 클래스(Context와 데이터가 담긴 List 매개변수로 받아옴)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {    // 뷰 홀더 생성
         return MyViewHolder(ItemMainBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
-    override fun getItemCount(): Int {  // 뷰홀더 개수
+    override fun getItemCount(): Int {  // 아이템 개수
         return datas?.size ?: 0 // 삼항연산자 true 일때 실행하는 부분을 생략한 것(사이즈에 아무거도 없으면 0 출력 하란 뜻)
     }
 
