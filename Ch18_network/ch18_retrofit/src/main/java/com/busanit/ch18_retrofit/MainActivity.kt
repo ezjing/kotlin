@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             userModel.enqueue(object : Callback<ResponseData> { // Call 데이터 타입 ResponseData로 지정하여 data의 자식 태그들의 값을 얻어와 출력할수 있도록 함(UserModel 쓰면 data 태그를 거치지 않고 바로 자식 태그의 데이터를 얻어 오려 해서 값이 입력 안됨)
                 override fun onResponse(call: Call<ResponseData>, response: Response<ResponseData>) {
                     val user = response.body()  // id = 1인 유저의 정보 출력
-//                    val id = user?.userModel?.id
+                    val id = user?.userModel?.id
                     Log.d("myLog", "user : $user")
                 }
 
